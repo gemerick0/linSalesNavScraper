@@ -19,8 +19,7 @@ import os
 from pandas.errors import DataError
 import pandas as pd
 
-SCRAPEOPS_API_KEY = 'b7c14682-a15e-48d9-a133-6b91cc022d6d'
-
+SCRAPEOPS_API_KEY = ''
 
 def get_user_agent_list():
     response = requests.get('http://headers.scrapeops.io/v1/user-agents?api_key=' + SCRAPEOPS_API_KEY)
@@ -38,8 +37,8 @@ user_agent_list = get_user_agent_list()
 
 cookies = get_listP('./cookies.json')
 cookies = str(cookies)
-baserow_api_token = "wMWVhs8wuDQBLauICWYxXeN1LCE6eUwI"
-leads_table_id = "292983"
+baserow_api_token = ""
+leads_table_id = ""
 baserow_url = "https://api.baserow.io/api/database/rows/table/"
 headers = {"Authorization": f"Token {baserow_api_token}", "Content-Type": "application/json"}
 emailNotEmptyFilters = {"filter_type": "AND", "filters": [{"type": "not_empty", "field": 2097243, "value": ""}],
@@ -185,7 +184,7 @@ def enter_linkedIn_profiles_from_baserow(pLink):
     driver.maximize_window()
     driver.get("https://www.linkedin.com/login/")
     time.sleep(3)
-    driver.add_cookie({"name": "li_at", "value": "AQEDATkqLvsEp_AvAAABj5lUdi4AAAGPvWD6Lk0ADFg9gNn35xSO_2nGfyFaw2vGgcngJk2DsHBKLaPUBUHFpP_K-wJT3Q66aCYCvPhfbsY0lBvqGaUtxDCQEHXqKJ7XqJQ-knUa6XEt7pZKMJM7fDZV"})
+    driver.add_cookie({})
     """enter_ids_on_lk_signin(driver, lk_credentials['TESmail'], lk_credentials['TESpassword'])
     if "checkpoint/challenge" in driver.current_url:
         print(
